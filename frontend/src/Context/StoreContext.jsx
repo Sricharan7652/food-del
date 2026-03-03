@@ -5,7 +5,7 @@ import axios from "axios";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-  const url = "http://localhost:4000";
+  const url = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
   const [foodList, setFoodList] = useState(initialFoodList);
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState("");
@@ -63,6 +63,7 @@ const StoreContextProvider = (props) => {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     async function loadData() {
       await fetchFoodList();

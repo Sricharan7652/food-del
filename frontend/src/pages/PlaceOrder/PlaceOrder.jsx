@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../../Context/StoreContext'
 import { assets } from '../../assets/assets'
 import { useNavigate } from 'react-router-dom'
@@ -82,6 +82,7 @@ const PlaceOrder = () => {
     }
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!token) {
       toast.error("You must sign in to place an order!")
